@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,5 +22,6 @@ public class Anime {
   private Long id;
 
   //@JsonProperty("name") para o caso em que o atributo do json retornado pela API seja "name" para o field em questão
+  @NotEmpty(message = "The anime name cannot be empty")
   private String name;
 }
