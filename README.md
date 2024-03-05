@@ -2,7 +2,7 @@ Springboot2-essentials is an application developed from the instructions availab
 
 The application is a REST API created with Spring Boot, version 2.3.4, to provide CRUD and anime listing services for a frontend.
 
-The database used is MySQL version 8.3.0 running in a Docker container.
+The database used was MySQL version 8.3.0 running in a Docker container.
 
 The following starters have been used so far in the application: Web, DevTools, Lombok, Test, JPA, Validation, MapStruct, MySQL and H2.
 
