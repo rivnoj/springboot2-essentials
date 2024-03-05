@@ -1,6 +1,6 @@
 package com.rivnoj.springboot2.controller;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -23,31 +23,31 @@ import com.rivnoj.springboot2.domain.Anime;
 import com.rivnoj.springboot2.requests.AnimePostRequestBody;
 import com.rivnoj.springboot2.requests.AnimePutRequestBody;
 import com.rivnoj.springboot2.service.AnimeService;
-import com.rivnoj.springboot2.util.DateUtil;
+//import com.rivnoj.springboot2.util.DateUtil;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+//import lombok.extern.log4j.Log4j2;
 
 @RestController
 @RequestMapping("animes")
-@Log4j2
+//@Log4j2
 //@AllArgsConstructor
 @RequiredArgsConstructor //necessita que os fields sejam declarados com a keyword final
 public class AnimeController {
-  private final DateUtil dateUtil;
+  // private final DateUtil dateUtil;
   private final AnimeService animeService;
   
   @SuppressWarnings("null")
   @GetMapping
   public ResponseEntity<Page<Anime>> list(Pageable pageable) {
-    log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
+    //log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
     //return new ResponseEntity<>(animeService.listAll(), HttpStatus.OK); or...
     return ResponseEntity.ok(animeService.listAll(pageable));
   }
   @SuppressWarnings("null")
   @GetMapping("/all")
   public ResponseEntity<List<Anime>> listAll() {
-    log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
+    //log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
     return ResponseEntity.ok(animeService.listAllNonPageable());
   }
 
