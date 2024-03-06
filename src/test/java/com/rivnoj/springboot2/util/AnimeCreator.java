@@ -3,7 +3,7 @@ package com.rivnoj.springboot2.util;
 import com.rivnoj.springboot2.domain.Anime;
 
 public class AnimeCreator {
-    public static Anime createAnimeToBeSaved() {
+  public static Anime createAnimeToBeSaved() {
     return Anime
             .builder()
             .name("Hajime no Ippo")
