@@ -162,7 +162,7 @@ public class AnimeControllerTest {
   @DisplayName("replace updates anime when successful")
   void replace_UpdatesAnime_WhenSuccessful() {
     Assertions.assertThatCode(() -> animeController.replace(AnimePutRequestBodyCreator.createAnimePutRequestBody()))
-              .doesNotThrowAnyException();;
+              .doesNotThrowAnyException();
     
     ResponseEntity<Void> entity = animeController.replace(AnimePutRequestBodyCreator.createAnimePutRequestBody());
 
