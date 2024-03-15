@@ -6,7 +6,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
 import lombok.extern.log4j.Log4j2;
 
 @EnableWebSecurity
@@ -15,7 +14,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests()
+    http.csrf()
+          .disable()
+          //.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()) //habilitar em produção
+          //.and()
+          .authorizeRequests()
           .anyRequest()
           .authenticated()
           .and()
