@@ -30,7 +30,7 @@ public class DevDojoUser implements UserDetails {
   private Long id;
 
   //@JsonProperty("name") para o caso em que o atributo do json retornado pela API seja "name" para o field em questão
-  @NotEmpty(message = "The anime name cannot be empty")
+  @NotEmpty(message = "The user's name cannot be empty")
   private String name;
 
   private String username;
