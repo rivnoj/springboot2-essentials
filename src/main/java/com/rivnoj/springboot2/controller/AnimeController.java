@@ -26,6 +26,9 @@ import com.rivnoj.springboot2.requests.AnimePostRequestBody;
 import com.rivnoj.springboot2.requests.AnimePutRequestBody;
 import com.rivnoj.springboot2.service.AnimeService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -40,6 +43,7 @@ public class AnimeController {
   
   @SuppressWarnings("null")
   @GetMapping
+  @Operation(summary = "List all animes paginated", description = "The default size is 20, use the parameter size to change the default value", tags = {"anime"})
   public ResponseEntity<Page<Anime>> list(/*@Parameter(hidden = true) para ocultar obj swagger*/ 
                                           @ParameterObject Pageable pageable) {
     //log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
@@ -81,6 +85,10 @@ public class AnimeController {
   }
 
   @DeleteMapping(path = "/admin/{id}")
+  @ApiResponses(value = {
+    @ApiResponse(responseCode = "204", description = "Successful operation"),
+    @ApiResponse(responseCode = "400", description = "When anime does not exist in the database")
+  })
   public ResponseEntity<Void> delete(@PathVariable long id) {
     animeService.delete(id);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
